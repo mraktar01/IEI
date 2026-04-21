@@ -104,26 +104,29 @@ document.addEventListener('DOMContentLoaded', function() {
   const errorEl = document.getElementById('loginError');
   const loginBtn = document.getElementById('loginBtn');
 
-  form.addEventListener('submit', function(e) {
+  // NOTICE: We added the word 'async' here
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const user = document.getElementById('adminUser').value.trim();
     const pass = document.getElementById('adminPass').value;
 
     loginBtn.disabled = true;
     loginBtn.textContent = 'Signing in…';
+    errorEl.classList.remove('show');
 
-    setTimeout(() => {
-      if (IEI_Auth.login(user, pass)) {
-        loginBtn.textContent = '✅ Redirecting…';
-        window.location.href = 'admin.html';
-      } else {
-        errorEl.classList.add('show');
-        loginBtn.disabled = false;
-        loginBtn.textContent = '🔐 Sign In to Dashboard';
-        document.getElementById('adminPass').value = '';
-        document.getElementById('adminPass').focus();
-      }
-    }, 600);
+    // NOTICE: We added 'await' here and removed the setTimeout
+    const isSuccess = await IEI_Auth.login(user, pass);
+
+    if (isSuccess) {
+      loginBtn.textContent = '✅ Redirecting…';
+      window.location.href = 'admin.html';
+    } else {
+      errorEl.classList.add('show');
+      loginBtn.disabled = false;
+      loginBtn.textContent = '🔐 Sign In to Dashboard';
+      document.getElementById('adminPass').value = '';
+      document.getElementById('adminPass').focus();
+    }
   });
 
   // Toggle password visibility
