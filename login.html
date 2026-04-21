@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  // Apply saved theme INSTANTLY — prevents flash of default theme
+  (function(){
+    var t=localStorage.getItem('iei-site-theme');
+    if(t&&t!=='default')document.documentElement.setAttribute('data-site-theme',t);
+    var d=localStorage.getItem('iei-theme');
+    if(d==='dark')document.documentElement.setAttribute('data-theme','dark');
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Institute of Education & Innovation</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/loader.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="login-page">
+  <!-- Visual Side -->
+  <div class="login-visual">
+    <div class="login-visual-content">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;">
+        <div style="width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;color:#fff;font-size:1.2rem;"><img src="./img/ieilogo.png" alt="IEI"></div>
+        <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:#fff;">Institute of Education<br><span style="font-size:.7rem;font-weight:400;opacity:.6;letter-spacing:.06em;text-transform:uppercase;">& Innovation</span></div>
+      </div>
+      <h1>Admin Control<br>Panel</h1>
+      <p>Manage news, events, gallery, and monitor the impact of our education programs — all from one secure dashboard.</p>
+      <div class="login-visual-feature">
+        <div class="login-visual-feature-icon">📰</div>
+        <span>Manage News & Events</span>
+      </div>
+      <div class="login-visual-feature">
+        <div class="login-visual-feature-icon">🖼️</div>
+        <span>Gallery Management</span>
+      </div>
+      <div class="login-visual-feature">
+        <div class="login-visual-feature-icon">📊</div>
+        <span>Dashboard Analytics</span>
+      </div>
+      <div class="login-visual-feature">
+        <div class="login-visual-feature-icon">🔒</div>
+        <span>Secure 1-Hour Sessions</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Side -->
+  <div class="login-form-side">
+    <div class="login-form-wrap">
+      <div class="login-form-header">
+        <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;color:#fff;margin-bottom:1.5rem;"><img src="./img/ieilogo.png" alt="IEI"></div>
+        <h2>Welcome Back</h2>
+        <p>Sign in to access the admin dashboard</p>
+      </div>
+
+      <div class="login-error" id="loginError">⚠️ Incorrect username or password. Please try again.</div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="adminUser">Username</label>
+          <input class="form-input" type="text" id="adminUser" placeholder="Enter your username" autocomplete="username" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="adminPass">Password</label>
+          <div class="password-toggle">
+            <input class="form-input" type="password" id="adminPass" placeholder="Enter your password" autocomplete="current-password" required>
+            <button type="button" class="toggle-pw-btn" id="togglePw">👁️</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--clr-text-2);cursor:pointer;">
+            <input type="checkbox" id="rememberMe" style="accent-color:var(--clr-primary);"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" id="loginBtn">
+          🔐 Sign In to Dashboard
+        </button>
+      </form>
+
+      <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--clr-border);">
+        <a href="index.html" style="font-size:.875rem;color:var(--clr-text-muted);">← Back to Website</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/loader.js"></script>
+<script src="js/env.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Redirect if already logged in
+  if (IEI_Auth.getSession()) {
+    window.location.href = 'admin.html';
+    return;
+  }
+
+  const form = document.getElementById('loginForm');
+  const errorEl = document.getElementById('loginError');
+  const loginBtn = document.getElementById('loginBtn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const user = document.getElementById('adminUser').value.trim();
+    const pass = document.getElementById('adminPass').value;
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Signing in…';
+
+    setTimeout(() => {
+      if (IEI_Auth.login(user, pass)) {
+        loginBtn.textContent = '✅ Redirecting…';
+        window.location.href = 'admin.html';
+      } else {
+        errorEl.classList.add('show');
+        loginBtn.disabled = false;
+        loginBtn.textContent = '🔐 Sign In to Dashboard';
+        document.getElementById('adminPass').value = '';
+        document.getElementById('adminPass').focus();
+      }
+    }, 600);
+  });
+
+  // Toggle password visibility
+  document.getElementById('togglePw').addEventListener('click', function() {
+    const input = document.getElementById('adminPass');
+    const isPass = input.type === 'password';
+    input.type = isPass ? 'text' : 'password';
+    this.textContent = isPass ? '🙈' : '👁️';
+  });
+
+  // Hide error on input
+  ['adminUser','adminPass'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => errorEl.classList.remove('show'));
+  });
+});
+</script>
+</body></html>

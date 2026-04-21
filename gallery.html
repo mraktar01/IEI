@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  // Apply saved theme INSTANTLY — prevents flash of default theme
+  (function(){
+    var t=localStorage.getItem('iei-site-theme');
+    if(t&&t!=='default')document.documentElement.setAttribute('data-site-theme',t);
+    var d=localStorage.getItem('iei-theme');
+    if(d==='dark')document.documentElement.setAttribute('data-theme','dark');
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Institute of Education & Innovation</title>
+<link rel="stylesheet" href="css/main.css">
+
+<link rel="stylesheet" href="css/themes.css">
+<style>
+#galleryFilter{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-bottom:2.5rem;}
+#galleryGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+@media(max-width:768px){#galleryGrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){#galleryGrid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+    <img src="./img/ieilogo.png" alt="IEI">
+      </div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-primary">Inst. of Education</span>
+        <span class="nav-logo-secondary">& Innovation</span>
+      </div>
+    </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="#abt" class="nav-link">About</a></li>
+          <li><a href="index.html#scholarshipsec" class="nav-link">Programs</a></li>
+          <!-- <li><a href="news.html" class="nav-link">Updates</a></li> -->
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li>
+            <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <a href="contact.html#donate" class="btn btn-primary btn-sm"
+            >Donate Now</a
+          >
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <nav class="mobile-nav" id="mobileNav">
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+      <a href="#abt" class="mobile-nav-link">ℹ️ About Us</a>
+      <a href="index.html#scholarshipsec" class="mobile-nav-link">📚 Programs</a>
+      <!-- <a href="news.html" class="mobile-nav-link">📰 News & Events</a> -->
+      <a href="gallery.html" class="mobile-nav-link">🖼️ Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+      <a
+        href="contact.html#donate"
+        class="btn btn-primary"
+        style="margin-top: 1rem"
+        >💛 Donate Now</a
+      >
+    </nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <p class="page-hero-label">Captured Moments</p>
+      <h1>Our <em style="color:var(--clr-gold-light);font-style:italic;">Gallery</em></h1>
+      <p>Browse photos from scholarship ceremonies, innovation fairs, community outreach programs, and student success stories from across the years.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--clr-bg);">
+  <div class="container">
+    <!-- <div id="galleryFilter"></div> -->
+    <div id="galleryGrid"><div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--clr-text-muted);">Loading gallery…</div></div>
+  </div>
+</section>
+
+
+
+</script><script src="js/theme.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/gallery.js"></script>
+</body></html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Legal Disclaimer</title>
+    <style>
+        /* CSS Variables for Bright Glassmorphism Theme */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-main: #f0f4f8;
+            --text-muted: #b9c6d2;
+            --accent: #4facfe;
+            --warning-bg: rgba(255, 69, 58, 0.1);
+            --warning-border: #ff453a;
+            --warning-text: #ffd6d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Glassmorphism Container */
+        .glass-container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative glowing orb */
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: var(--accent);
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: var(--warning-text);
+        }
+
+        /* Implicit Agreement Section Styling */
+        .implicit-agreement {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .implicit-agreement p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .glass-container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        <header>
+            <h1>Legal Disclaimer & Terms of Use</h1>
+            <p class="last-updated">Effective Date: December 2025</p>
+        </header>
+
+        <main>
+            <section id="disclaimer">
+                <h2>Nature of Information</h2>
+                <p>The information, architecture, projects, and data presented on this website are provided strictly for educational, conceptual, and informational purposes. <strong>No guarantee is made regarding the accuracy, completeness, or real-world applicability of the content.</strong></p>
+                <p>Certain sections of this website may contain hypothetical scenarios, experimental prototypes, and forward-looking plans that may never materialize. This content represents an exploration of ideas rather than a statement of factual reality. Visitors must exercise independent judgment, and no content herein shall be construed as professional, financial, or legally binding advice.</p>
+            </section>
+
+            <section id="credits">
+                <h2>Attribution & Third-Party Assets</h2>
+                <p>This platform acknowledges the intellectual property of others. Any external resources, including images, graphics, references, open-source libraries, code snippets, and design inspirations utilized within this architecture remain the sole property of their respective owners.</p>
+                <p>All credit is attributed to these original creators. Usage on this platform is intended under the parameters of fair use for illustrative and transformative purposes.</p>
+            </section>
+
+            <section id="copyright">
+                <h2>Intellectual Property Restrictions</h2>
+                <div class="highlight-box">
+                    <strong>CRIMINAL LIABILITY WARNING:</strong> The unauthorized scraping, copying, cloning, reproducing, or redistribution of this website's original text, proprietary source code, structural design, or branding is strictly forbidden and will be assumed as a violation of intellectual property rights.
+                </div>
+                <p>All original content developed by the creator is protected by applicable copyright laws. Reproducing, mirroring, or claiming any part of this website's original assets as your own will be pursued as a legal offense. All rights are unconditionally reserved.</p>
+            </section>
+
+            <section id="liability">
+                <h2>Absolute Limitation of Liability</h2>
+                <p>The explicit purpose of this document is to disclaim legal liability. Under no circumstances shall the website owner, developers, or associated affiliates be held liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your access to, or inability to access, this website.</p>
+            </section>
+        </main>
+
+        <div class="implicit-agreement">
+            <p>By continuing to access, browse, or utilize this website, you implicitly and unconditionally agree to all terms and conditions stated above. No explicit action is required to bind you to these conditions.</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Institute of Education & Innovation. All Rights Reserved.</p>
+            <p>Malda, West Bengal, IN</p>
+        </footer>
+    </div>
+
+</body>
+</html>
