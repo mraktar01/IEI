@@ -1,17 +1,9 @@
 [build]
-  # The command to build your site (e.g., npm run build)
-  command = "npm run build"
+  # Leave this completely blank so Netlify knows not to look for package.json
+  command = ""
   
-  # The directory containing your compiled site ready for deployment
-  # For React (Vite) it's usually "dist", for Create React App it's "build", for Next.js it's ".next"
-  publish = "dist" 
+  # A single dot means "publish exactly what is in my main folder"
+  publish = "." 
 
-  # The directory where your Netlify Functions live
+  # This tells Netlify where your backend login script lives
   functions = "netlify/functions"
-
-# This is crucial for Single Page Applications (like React) to handle routing correctly.
-# It redirects all traffic to your index.html so your frontend router can take over.
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
