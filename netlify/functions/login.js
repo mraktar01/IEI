@@ -1,29 +1,36 @@
-// File: netlify/functions/login.js
-
 exports.handler = async (event, context) => {
-  // Only allow POST requests for a login endpoint
+  // 1. Check if it's a secure POST request
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  // Access the secure credentials you will set in the Netlify Dashboard
-  const API_KEY = process.env.MY_SECRET_API_KEY;
-  const DB_PASSWORD = process.env.DATABASE_PASSWORD;
+  // 2. Grab the EXACT variable names we are going to put in Netlify
+  const EXPECTED_USERNAME = process.env.ADMIN_USERNAME; 
+  const EXPECTED_PASSWORD = process.env.ADMIN_PASSWORD;
 
   try {
-    // Parse the data sent from your frontend
-    const body = JSON.parse(event.body);
+    // 3. Unpack the username and password the user typed into the login.html form
+    const frontendData = JSON.parse(event.body);
     
-    // ... Perform your secure login logic here using API_KEY and DB_PASSWORD ...
+    // 4. Compare what they typed against the secrets in Netlify
+    if (frontendData.username === EXPECTED_USERNAME && frontendData.password === EXPECTED_PASSWORD) {
+      // It's a match! Let them in.
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: "Login successful!" }),
+      };
+    } else {
+      // No match. Kick them out.
+      return {
+        statusCode: 401, // 401 means "Unauthorized"
+        body: JSON.stringify({ error: "Incorrect username or password." }),
+      };
+    }
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "Login successful!" }),
-    };
   } catch (error) {
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "An error occurred during login." }),
+      statusCode: 400, 
+      body: JSON.stringify({ error: "Data was formatted incorrectly." }),
     };
   }
 };
