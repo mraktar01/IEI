@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Donate — Institute of Education & Innovation</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="./img/ieilogo.png" alt="IEI" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-primary">Inst. of Education</span>
+          <span class="nav-logo-secondary">& Innovation</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#abt" class="nav-link">About</a></li>
+        <li><a href="index.html#scholarshipsec" class="nav-link">Programs</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#donate" class="btn btn-primary btn-sm">Donate Now</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+   <div class="mobile-overlay" id="mobileOverlay"></div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+      <a href="index.html#abt" class="mobile-nav-link">ℹ️ About Us</a>
+      <a href="index.html#scholarshipsec" class="mobile-nav-link">📚 Programs</a>
+      <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+      
+      <button class="mobile-nav-link" id="mobileThemeBtn" style="width: 100%; text-align: left; cursor: pointer; font-family: inherit;">
+        <span class="theme-icon">🌙</span> <span class="theme-text">Dark Mode</span>
+      </button>
+
+      <a href="contact.html#donate" class="btn btn-primary" style="margin-top: 1rem; width: 100%; border-radius: 16px; justify-content: center;">💛 Donate Now</a>
+    </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <p class="page-hero-label">Reach Out</p>
+        <h1>Contact & <em style="color:var(--clr-gold-light);font-style:italic;">Donate</em></h1>
+        <p>Have a question, want to apply, or wish to support a student? We'd love to hear from you.</p>
+        <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Contact</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--clr-bg);">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal-left">
+          <p class="section-label">Send a Message</p>
+          <h2 class="section-title" style="text-align:left;margin-bottom:2rem;">Get in <em>Touch</em></h2>
+          <form id="contactForm" style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-xl);padding:2.5rem;">
+            <div class="grid-2" style="gap:1rem;">
+              <div class="form-group">
+                <label class="form-label" for="firstName">Name *</label>
+                <input class="form-input" type="text" id="firstName" placeholder="Your full name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" placeholder="+91 ">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message *</label>
+              <textarea class="form-textarea" id="message" placeholder="Tell us how we can help you…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">📨 Send Message</button>
+          </form>
+        </div>
+
+        <div class="reveal-right" style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div class="contact-info-card">
+            <h3 style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:1.5rem;">Contact Information</h3>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div><div class="contact-info-label">Address</div><div class="contact-info-value">Malda, West Bengal, IN</div></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div><div class="contact-info-label">Phone</div><div class="contact-info-value">+91 XXXXX XXXXX</div></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉️</div>
+              <div><div class="contact-info-label">Email</div><div class="contact-info-value">ieiindia.office@gmail.com</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--clr-bg-2);" id="donate">
+    <div class="container">
+      <div class="grid-2" style="align-items:center;gap:4rem;">
+        <div class="reveal-left">
+          <p class="section-label">Support Our Cause</p>
+          <h2 class="section-title">Your Donation Funds <em>Real Dreams</em></h2>
+          <p style="font-size:1.05rem;color:var(--clr-text-2);line-height:1.8;margin-bottom:1.5rem;">100% of your donation goes directly to student scholarships and program operations.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;font-size:.95rem;color:var(--clr-text-2);"><span style="color:var(--clr-green);font-size:1.2rem;">✅</span> ₹500 funds a student's books for a semester</div>
+            <div style="display:flex;align-items:center;gap:1rem;font-size:.95rem;color:var(--clr-text-2);"><span style="color:var(--clr-green);font-size:1.2rem;">✅</span> ₹10,000 sponsors one student for a semester</div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="donate-card">
+            <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.5rem;">Make a Donation</h3>
+            <div class="donation-amounts">
+              <button class="donation-btn" data-amount="500">₹500</button>
+              <button class="donation-btn selected" data-amount="2000">₹2,000</button>
+              <button class="donation-btn" data-amount="5000">₹5,000</button>
+              <button class="donation-btn" data-amount="10000">₹10,000</button>
+              <button class="donation-btn" data-amount="25000">₹25,000</button>
+              <button class="donation-btn" data-amount="custom">Custom</button>
+            </div>
+            <div class="form-group" id="customAmountGroup" style="display:none;">
+              <input class="form-input" type="number" id="customAmount" placeholder="Enter amount in ₹" min="100">
+            </div>
+            <div class="form-group">
+              <input class="form-input" type="text" placeholder="Full name" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff;">
+            </div>
+            <div class="form-group">
+              <input class="form-input" type="email" placeholder="Email for Receipt" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff;">
+            </div>
+            <button class="btn btn-gold btn-lg" style="width:100%;" id="donateSubmitBtn">💛 Proceed to Donate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo-text">Institute of Education & Innovation</div>
+            <p>Transforming lives through the power of education since 2026.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#abt" class="footer-link">About Us</a></li>
+              <li><a href="#scholarshipsec" class="footer-link">Programs</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="footer-contact-item"><span>📍</span><span onclick="window.open('https://www.google.com/maps/search/?api=1&query=Malda+West+Bengal+India', '_blank')" style="cursor: pointer;"title="View on Google Maps">Malda, West Bengal, IN</span></div>
+            <div class="footer-contact-item"><span>📞</span><span>+91 XXXXX XXXXX</span></div>
+            <div class="footer-contact-item"><span>✉️</span><span onclick="window.location.href='mailto:ieiindia.office@gmail.com'" style="cursor: pointer;" title="Click to send an email">ieiindia.office@gmail.com</span></div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Institute of Education & Innovation. All rights reserved.</span>
+          <span><a href="javascript:void(0)" id="policyTrigger" style="color: rgb(16, 217, 228);">Terms & conditions</a></span>
+        </div>
+      </div>
+    </footer>
+    <div class="policy-modal" id="policyModal">
+    <div class="policy-modal-container glass-container">
+        <button class="policy-cross" id="policyCross">&times;</button>
+        
+        <header class="policy-header">
+            <h1>Legal Disclaimer & Terms of Use</h1>
+            <p class="last-updated">Effective Date: December 2025</p>
+        </header>
+
+        <div class="policy-scroll-body" id="policyScrollBody">
+            <section>
+                <h2>Nature of Information</h2>
+                <p>The information and data presented are for educational purposes. No guarantee is made regarding accuracy. Hypothetical scenarios represent exploration of ideas, not factual reality.</p>
+            </section>
+
+            <section>
+                <h2>Attribution</h2>
+                <p>External resources remain the property of respective owners. Usage is intended under fair use for illustrative purposes.</p>
+            </section>
+
+            <section>
+                <h2>Intellectual Property</h2>
+                <div class="policy-warning">
+                    <strong>CRIMINAL LIABILITY WARNING:</strong> Unauthorized scraping or cloning of this design is strictly forbidden.
+                </div>
+                <p>Original assets are protected by copyright laws. Mirroring assets will be pursued as a legal offense.</p>
+            </section>
+
+            <section>
+                <h2>Limitation of Liability</h2>
+                <p>The owner shall not be held liable for damages arising out of your access to this website.</p>
+            </section>
+
+            <div class="policy-agreement-line">
+                <p>By visiting our website you agree all these terms and policies.</p>
+            </div>
+        </div>
+
+        <div class="policy-footer">
+            <button id="acceptPolicyBtn" class="accept-btn" disabled>I Understood and Accept</button>
+        </div>
+    </div>
+</div>
+
+  <div id="toastContainer"></div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
